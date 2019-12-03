@@ -1,4 +1,4 @@
-package org.mmm.marsroverkata;
+package org.mmm.marsroverkata.domain;
 
 import java.util.Objects;
 
@@ -61,5 +61,14 @@ public class Position {
     @Override
     public int hashCode() {
         return Objects.hash(x, y);
+    }
+
+
+    @Override
+    public String toString() {
+        return "Position{" +
+            "x=" + x +
+            ", y=" + y +
+            '}';
     }
 }

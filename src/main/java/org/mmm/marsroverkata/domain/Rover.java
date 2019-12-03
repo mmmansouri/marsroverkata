@@ -1,4 +1,4 @@
-package org.mmm.marsroverkata;
+package org.mmm.marsroverkata.domain;
 
 import java.util.Objects;
 
@@ -8,9 +8,9 @@ public class Rover {
 
     private Direction orientation;
 
-    Rover(){}
+    public Rover(){}
 
-    Rover(Position position,Direction orientation ){
+    public Rover(Position position,Direction orientation ){
         this.orientation=orientation;
         this.position=position;
     }
@@ -20,7 +20,8 @@ public class Rover {
     }
 
     public void setPosition(Position position) {
-        this.position = position;
+        this.position.setX(position.getX());
+        this.position.setY(position.getY());
     }
 
     public Direction getOrientation() {
@@ -43,5 +44,13 @@ public class Rover {
     @Override
     public int hashCode() {
         return Objects.hash(position, orientation);
+    }
+
+    @Override
+    public String toString() {
+        return "Rover{" +
+            "position=" + position +
+            ", orientation=" + orientation +
+            '}';
     }
 }

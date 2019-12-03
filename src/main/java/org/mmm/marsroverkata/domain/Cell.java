@@ -1,10 +1,10 @@
-package org.mmm.marsroverkata;
+package org.mmm.marsroverkata.domain;
 
-public class Box {
+public class Cell {
     private final Position position;
     private boolean occupied=false;
 
-    public Box(Position position) {
+    public Cell(Position position) {
         this.position = position;
     }
 
@@ -18,5 +18,13 @@ public class Box {
 
     public Position getPosition() {
         return position;
+    }
+
+    @Override
+    public String toString() {
+        return "Cell{" +
+            "position=" + position +
+            ", occupied=" + occupied +
+            '}';
     }
 }

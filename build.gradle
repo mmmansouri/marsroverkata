@@ -22,8 +22,7 @@ repositories {
 
 dependencies {
     // This dependency is used by the application.
-    implementation 'com.google.guava:guava:27.1-jre'
-
+    compile 'org.apache.commons:commons-lang3:3.9'
     // Use JUnit Jupiter API for testing.
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.4.2'
 
@@ -33,10 +32,23 @@ dependencies {
 
 application {
     // Define the main class for the application
-    mainClassName = 'marsroverkata.App'
+    mainClassName = 'org.mmm.marsroverkata.App'
 }
 
 test {
     // Use junit platform for unit tests
     useJUnitPlatform()
+}
+
+version = '1.0'
+
+task fatJar(type: Jar) {
+    manifest {
+        attributes 'Implementation-Title': 'Gradle Jar',
+                'Implementation-Version': version,
+                'Main-Class': 'org.mmm.marsroverkata.App'
+    }
+    baseName = project.name + '-all'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
 }
